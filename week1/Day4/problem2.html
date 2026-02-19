@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Evaluator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background-color: #ffffff;
+            width: 350px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 8px;
+            width: 80%;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Grade Evaluator</h2>
+        <input type="number" id="marks" placeholder="Enter marks">
+        <br>
+        <button onclick="checkGrade()">Check Grade</button>
+
+        <div id="output" class="result"></div>
+    </div>
+
+    <script>
+
+        function checkGrade() {
+
+            let marks = Number(document.getElementById("marks").value);
+            let grade = "";
+            let output = document.getElementById("output");
+
+            if (marks >= 75) {
+                grade = "Grade A";
+                output.style.color = "green";
+            } 
+            else if (marks >= 60) {
+                grade = "Grade B";
+                output.style.color = "blue";
+            } 
+            else if (marks >= 40) {
+                grade = "Grade C";
+                output.style.color = "orange";
+            } 
+            else {
+                grade = "Fail";
+                output.style.color = "red";
+            }
+
+            output.innerHTML = "Result: " + grade;
+
+            console.log("Marks:", marks);
+            console.log("Result:", grade);
+        }
+
+    </script>
+
+</body>
+</html>

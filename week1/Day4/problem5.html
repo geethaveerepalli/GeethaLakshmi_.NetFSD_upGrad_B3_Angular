@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Analysis Tool</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f6f8;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+        .box {
+            background-color: rgb(202, 196, 212);
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        #output {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        input {
+            padding: 6px;
+            width: 80%;
+        }
+        button {
+            padding: 6px 12px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="box">
+        <h2>Number Analysis Tool</h2>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <br>
+        <button onclick="analyzeNumber()">Analyze</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+
+        function analyzeNumber() {
+
+            let num = Number(document.getElementById("numberInput").value);
+            let output = document.getElementById("output");
+
+            let sign = (num >= 0) ? "Positive Number" : "Negative Number";
+            output.style.color = "blue";
+
+            let parity;
+            if (num % 2 === 0) {
+                parity = "Even Number";
+            } else {
+                parity = "Odd Number";
+            }
+
+            let numbersList = "";
+            for (let i = 1; i <= num; i++) {
+                numbersList += i + " ";
+            }
+
+            output.innerHTML =
+                sign + "<br>" +
+                parity + "<br><br>" +
+                numbersList;
+
+            console.log("Sign:", sign);
+            console.log("Parity:", parity);
+            console.log("Numbers:", numbersList);
+        }
+
+    </script>
+
+</body>
+</html>
