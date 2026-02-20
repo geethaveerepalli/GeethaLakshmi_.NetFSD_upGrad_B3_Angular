@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic User Info Display</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #4e73df;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #2e59d9;
+        }
+
+        .output {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .output p {
+            margin: 5px 0;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>User Information</h2>
+
+        <input type="text" id="nameInput" placeholder="Enter Name">
+        <input type="number" id="ageInput" placeholder="Enter Age">
+        <input type="text" id="cityInput" placeholder="Enter City">
+
+        <button onclick="showUser()">Display User Info</button>
+
+        <div class="output">
+            <p id="name"></p>
+            <p id="age"></p>
+            <p id="city"></p>
+        </div>
+    </div>
+
+    <script>
+
+        function showUser() {
+
+            // Object created dynamically
+            var user = {
+                name: document.getElementById("nameInput").value,
+                age: document.getElementById("ageInput").value,
+                city: document.getElementById("cityInput").value
+            };
+
+            displayUserInfo(user);
+        }
+
+        function displayUserInfo(userObj) {
+
+            document.getElementById("name").innerHTML = "Name: " + userObj.name;
+            document.getElementById("age").innerHTML = "Age: " + userObj.age;
+            document.getElementById("city").innerHTML = "City: " + userObj.city;
+        }
+
+    </script>
+
+</body>
+</html>
