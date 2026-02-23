@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Notes Saver</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            resize: none;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .btn-group {
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .save-btn {
+            background-color: #4e73df;
+            color: white;
+        }
+
+        .save-btn:hover {
+            background-color: #2e59d9;
+        }
+
+        .clear-btn {
+            background-color: #e74a3b;
+            color: white;
+        }
+
+        .clear-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .status {
+            margin-top: 10px;
+            font-size: 13px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body onload="loadNote()">
+
+    <div class="container">
+        <h2>Daily Notes</h2>
+
+        <textarea id="noteArea" placeholder="Write your note here..."></textarea>
+
+        <div class="btn-group">
+            <button class="save-btn" onclick="saveNote()">Save</button>
+            <button class="clear-btn" onclick="clearNote()">Clear</button>
+        </div>
+
+        <div class="status" id="statusMsg"></div>
+    </div>
+
+    <script>
+        function saveNote() {
+            let note = document.getElementById("noteArea").value;
+            localStorage.setItem("myNote", note);
+            document.getElementById("statusMsg").innerText = "Note saved successfully!";
+            alert("saved sucessfully!")
+        }
+       
+
+        function loadNote() {
+            let savedNote = localStorage.getItem("myNote");
+
+            if (savedNote !== null) {
+                document.getElementById("noteArea").value = savedNote;
+            }
+        }
+
+        function clearNote() {
+            localStorage.removeItem("myNote");
+
+            document.getElementById("noteArea").value = "";
+            document.getElementById("statusMsg").innerText = "Note cleared!";
+            alert("data Cleared!")
+        }
+        window.onload = loadNote; 
+    </script>
+
+</body>
+</html>
