@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Data Fetcher</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+           
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            
+        }
+
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        #result {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Weather Data Fetcher</h2>
+
+        <input type="text" id="city" placeholder="Enter city name">
+
+        <br>
+
+        <button onclick="getWeatherPromise()">Promise</button>
+        <button onclick="getWeatherAsync()">Async/Await</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="problem1.js"></script>
+
+</body>
+</html>
