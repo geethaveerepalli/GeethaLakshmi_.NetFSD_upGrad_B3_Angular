@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment System - Polymorphism</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        #output {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Payment System</h1>
+<div id="output"></div>
+
+<script>
+
+class Payment {
+    pay(amount) {
+        return "Processing payment of ₹" + amount;
+    }
+}
+
+class CreditCardPayment extends Payment {
+    pay(amount) {
+        return "Paid " + amount + " using Credit Card";
+    }
+}
+
+class UPIPayment extends Payment {
+    pay(amount) {
+        return "Paid " + amount + " using UPI";
+    }
+}
+
+class CashPayment extends Payment {
+    pay(amount) {
+        return "Paid " + amount + " using Cash";
+    }
+}
+
+const payment1 = new CreditCardPayment();
+const payment2 = new UPIPayment();
+const payment3 = new CashPayment();
+
+const output = document.getElementById("output");
+
+const payments = [
+    payment1.pay(500),
+    payment2.pay(750),
+    payment3.pay(300)
+];
+
+payments.forEach(message => {
+    output.innerHTML += "<div class='card'>" + message + "</div>";
+});
+</script>
+
+</body>
+</html>
