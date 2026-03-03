@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ Toggle Section</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        .question{
+            cursor: pointer;
+            padding: 8px;
+            background-color: #f2f2f2;
+        }
+
+        .answer{
+            padding: 8px;
+            background-color: #fafafa;
+        }
+
+        .active{
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Frequently Asked Questions</h2>
+<hr>
+
+<div>
+
+    <p class="question">1. What is jQuery?</p>
+    <div class="answer">jQuery is a JavaScript library that simplifies DOM manipulation.</div>
+
+    <p class="question">2. What is show() method?</p>
+    <div class="answer">show() displays hidden elements.</div>
+
+    <p class="question">3. What is hide() method?</p>
+    <div class="answer">hide() hides visible elements.</div>
+
+    <p class="question">4. What is toggle() method?</p>
+    <div class="answer">toggle() switches between show and hide.</div>
+
+    <p class="question">5. What is fade effect?</p>
+    <div class="answer">fadeIn and fadeOut create smooth effects.</div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+    
+    $(".answer").hide();
+    $(".question").click(function(){
+        let answer = $(this).next(".answer");
+         $(".answer").hide(); 
+        answer.fadeToggle(2000);
+        $(this).toggleClass("active");
+
+    });
+
+});
+</script>
+
+</body>
+</html>
