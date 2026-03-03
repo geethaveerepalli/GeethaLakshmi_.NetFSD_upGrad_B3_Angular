@@ -1,12 +1,5 @@
--- Create Database
 CREATE DATABASE EventDb;
 
--- Use the Database
-USE EventDb;
-
------------------------------------------------------
--- 1. UserInfo Table
------------------------------------------------------
 CREATE TABLE UserInfo (
     EmailId VARCHAR(100) PRIMARY KEY,
     UserName VARCHAR(50) NOT NULL CHECK (LEN(UserName) BETWEEN 1 AND 50),
@@ -14,9 +7,6 @@ CREATE TABLE UserInfo (
     Password VARCHAR(20) NOT NULL CHECK (LEN(Password) BETWEEN 6 AND 20)
 );
 
------------------------------------------------------
--- 2. EventDetails Table
------------------------------------------------------
 CREATE TABLE EventDetails (
     EventId INT PRIMARY KEY,
     EventName VARCHAR(50) NOT NULL,
@@ -34,9 +24,6 @@ CREATE TABLE SpeakersDetails (
     SpeakerName VARCHAR(50) NOT NULL
 );
 
------------------------------------------------------
--- 4. SessionInfo Table
------------------------------------------------------
 CREATE TABLE SessionInfo (
     SessionId INT PRIMARY KEY,
     EventId INT NOT NULL,
@@ -50,9 +37,6 @@ CREATE TABLE SessionInfo (
     FOREIGN KEY (SpeakerId) REFERENCES SpeakersDetails(SpeakerId)
 );
 
------------------------------------------------------
--- 5. ParticipantEventDetails Table
------------------------------------------------------
 CREATE TABLE ParticipantEventDetails (
     Id INT PRIMARY KEY,
     ParticipantEmailId VARCHAR(100) NOT NULL,
@@ -64,9 +48,6 @@ CREATE TABLE ParticipantEventDetails (
     FOREIGN KEY (SessionId) REFERENCES SessionInfo(SessionId)
 );
 
------------------------------------------------------
--- Insert Sample Data
------------------------------------------------------
 INSERT INTO UserInfo VALUES
 ('geetha@gmail.com','Geetha','Participant','pass123');
 
@@ -85,9 +66,6 @@ INSERT INTO SessionInfo VALUES
 INSERT INTO ParticipantEventDetails VALUES
 (1,'geetha@gmail.com',1,1,1);
 
------------------------------------------------------
--- View Data
------------------------------------------------------
 SELECT * FROM UserInfo;
 SELECT * FROM EventDetails;
 SELECT * FROM SpeakersDetails;
