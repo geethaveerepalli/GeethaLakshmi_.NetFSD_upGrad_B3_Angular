@@ -1,0 +1,28 @@
+﻿<div class="container mt-5">
+    <div class="card shadow p-4">
+
+        <h2 class="text-success text-center mb-4">Student Details</h2>
+
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewBag.Name</td>
+                    <td>@ViewBag.Age</td>
+                    <td>@ViewBag.Course</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-center mt-3">
+            <a href="/Student/Register" class="btn btn-primary btn-sm">Back</a>
+        </div>
+
+    </div>
+</div>

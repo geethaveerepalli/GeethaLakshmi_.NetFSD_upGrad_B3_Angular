@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.Feedback
+@{
+    ViewBag.Title = "Feedback Form";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Feedback Form</h2>
+
+    <form method="post" asp-controller="Feedback" asp-action="Form">
+        <div class="mb-3">
+            <label class="form-label">Name:</label>
+            <input type="text" name="Name" class="form-control" placeholder="Enter your name" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Comments:</label>
+            <textarea name="Comments" class="form-control" rows="3" placeholder="Enter comments"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Rating (1-5):</label>
+            <input type="number" name="Rating" class="form-control" min="1" max="5" required />
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit Feedback</button>
+    </form>
+
+    <hr />
+
+    @if (ViewData["Message"] != null)
+    {
+        <div class="alert alert-info mt-3">
+            @ViewData["Message"]
+        </div>
+    }
+</div>
