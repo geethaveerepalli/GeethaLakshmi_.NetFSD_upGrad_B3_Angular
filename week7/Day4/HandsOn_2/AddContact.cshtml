@@ -1,0 +1,46 @@
+﻿@model WebApplication5.Models.ContactInfo
+
+<h2>Add New Contact</h2>
+
+<form asp-controller="Contact" asp-action="AddContact" method="post">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label>First Name</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+
+    <div>
+        <label>Last Name</label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="EmailId" class="form-control" />
+    </div>
+
+    <div>
+        <label>Mobile</label>
+        <input asp-for="MobileNo" class="form-control" />
+    </div>
+
+    <div>
+        <label>Designation</label>
+        <input asp-for="Designation" class="form-control" />
+    </div>
+
+    <div>
+        <label>Company</label>
+        <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.Companies"></select>
+    </div>
+
+    <div>
+        <label>Department</label>
+        <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.Departments"></select>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Add Contact</button>
+    <a asp-action="ShowContacts" class="btn btn-secondary">Cancel</a>
+</form>
