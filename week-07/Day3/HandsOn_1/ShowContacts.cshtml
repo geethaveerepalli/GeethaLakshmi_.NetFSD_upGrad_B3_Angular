@@ -1,0 +1,43 @@
+﻿@model List<ContactInfo>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-3">Contact List</h2>
+<form method="get" action="/Contact/GetContactById" class="row g-3 mb-3">
+    <div class="col-auto">
+        <input type="number" name="id" class="form-control" placeholder="Enter ID" required />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<a href="/Contact/AddContact" class="btn btn-success mb-3">+ Add Contact</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Designation</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ContactId</td>
+                <td>@item.FirstName @item.LastName</td>
+                <td>@item.CompanyName</td>
+                <td>@item.EmailId</td>
+                <td>@item.MobileNo</td>
+                <td>@item.Designation</td>
+            </tr>
+        }
+    </tbody>
+</table>
