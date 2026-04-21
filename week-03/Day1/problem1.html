@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Feedback Form</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    padding: 30px;
+}
+
+h2 {
+    color: #333;
+}
+
+input[type="text"], select, textarea {
+    width: 250px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 70px;
+}
+
+input[type="button"] {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+#message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: blue;
+}
+</style>
+
+<body>
+
+<h2>Student Feedback Form</h2>
+<hr>
+
+Name:
+<input type="text" id="name">
+<br><br>
+
+Email:
+<input type="text" id="email">
+<br><br>
+
+Course Rating:
+<select id="rating">
+    <option value="">Select Rating</option>
+    <option>Excellent</option>
+    <option>Good</option>
+    <option>Average</option>
+    <option>Poor</option>
+</select>
+<br><br>
+
+Comments:
+<br>
+<textarea id="comments"></textarea>
+<br><br>
+
+<input type="button" id="submitBtn" value="Submit Feedback">
+
+<br><br>
+
+<div id="message"></div>
+
+<script>
+$(document).ready(function(){
+
+    $("#submitBtn").click(function(){
+
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+
+        if(name === "" || email === ""){
+            $("#message").html("Please enter both Name and Email.");
+        }
+        else{
+            $("#message").html("Thank you! Feedback submitted successfully.");
+            
+            $("#name").val("");
+            $("#email").val("");
+            $("#rating").val("");
+            $("#comments").val("");
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>
