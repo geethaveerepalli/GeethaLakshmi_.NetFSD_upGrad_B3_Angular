@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grades</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        #studentsContainer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .student {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            width: 220px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .grade {
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .A { color: green; }
+        .B { color: blue; }
+        .C { color: orange; }
+        .Fail { color: red; }
+    </style>
+</head>
+<body>
+
+<h1>Student Details & Grades</h1>
+<div id="studentsContainer"></div>
+
+<script>
+class Student {
+    constructor(name, rollNumber, marks) {
+        this._name = name;
+        this._rollNumber = rollNumber;
+        this._marks = marks;
+    }
+
+    getDetails() {
+        return "Name: " + this._name + "<br>Roll Number: " + this._rollNumber + "<br>Marks: " + this._marks;
+    }
+
+    getGrade() {
+        if (this._marks >= 90) return 'A';
+        else if (this._marks >= 75) return 'B';
+        else if (this._marks >= 50) return 'C';
+        else return 'Fail';
+    }
+}
+const student1 = new Student("Geetha", 101, 92);
+const student2 = new Student("Chandu", 102, 75);
+const student3 = new Student("Pooji", 103, 50);
+const student4 = new Student("Vyshu", 104, 30);
+
+const container = document.getElementById("studentsContainer");
+
+container.innerHTML = "<div class='student'>" +student1.getDetails() + "<br>" + "Grade: " + student1.getGrade() + "</div>" +
+
+    "<div class='student'>" +
+        student2.getDetails() + "<br>" +
+        "Grade: " + student2.getGrade() +
+    "</div>" +
+
+    "<div class='student'>" +
+        student3.getDetails() + "<br>" +
+        "Grade: " + student3.getGrade() +
+    "</div>" +
+
+    "<div class='student'>" +
+        student4.getDetails() + "<br>" +
+        "Grade: " + student4.getGrade() +
+    "</div>";
+</script>
+
+</body>
+</html>
