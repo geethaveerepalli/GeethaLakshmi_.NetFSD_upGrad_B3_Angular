@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Enrollment Form</title>
+</head>
+<body>
+<center>
+<header>
+    <h1>Online Learning Platform</h1>
+</header>
+
+<main>
+
+    <h2>Course Enrollment Form</h2>
+
+    <form action="Enrollment" method="post" > 
+        <fieldset>
+            <legend>Course Form</legend>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email"
+               placeholder="example@email.com"
+               required>
+        <br><br>
+        <label for="course">Choose Course:</label>
+        <input list="courses" id="course" name="course"
+               placeholder="Select or type course name"
+               required>
+
+        <datalist id="courses">
+            <option value="HTML">
+            <option value="CSS">
+            <option value="JavaScript">
+            <option value="Python">
+            <option value="Data Science">
+        </datalist>
+        <br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"
+               min="16" max="60"
+               required>
+        <br><br>
+        <label for="skill">Skill Level (0-100):</label>
+        <input type="range" id="skill" name="skill"
+               min="0" max="100" value="50">
+        <br><br>
+
+        <label>Skill Level Indicator:</label>
+        <meter value="50" min="0" max="100"
+               low="30" high="70" optimum="80">
+        </meter>
+        <br><br>
+        <label>Enrollment Completion:</label>
+        <progress value="70" max="100"></progress>
+        <br><br>
+        <button type="submit"><strong>Enroll</strong></button>
+        <button type="reset"><strong>Clear</strong></button>
+    </fieldset>
+    </form>
+
+</main>
+
+</body>
+</center>
+</html>
